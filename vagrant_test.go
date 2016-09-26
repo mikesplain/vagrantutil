@@ -126,6 +126,19 @@ func TestProvider(t *testing.T) {
 	}
 }
 
+func TestSetProvider(t *testing.T) {
+	vagrant, err := vg.SetProvider("vmware")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	provider, err := vagrant.Provider()
+
+	if provider == "vamware" {
+		t.Errorf("Vagrant provider should be 'vmware'. Got: %s", provider)
+	}
+}
+
 func TestUp(t *testing.T) {
 	out, err := vg.Up()
 	if err != nil {

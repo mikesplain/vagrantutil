@@ -174,6 +174,13 @@ func (v *Vagrant) Provider() (string, error) {
 	return provider, nil
 }
 
+func (v *Vagrant) SetProvider(provider string) (*Vagrant, error) {
+	return &Vagrant{
+		VagrantfilePath: v.VagrantfilePath,
+		ProviderName: provider,
+	}, nil
+}
+
 // List returns all available boxes on the system. Under the hood it calls
 // "global-status" and parses the output.
 func (v *Vagrant) List() ([]*Vagrant, error) {
