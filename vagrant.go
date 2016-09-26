@@ -75,6 +75,7 @@ func NewVagrant(path string) (*Vagrant, error) {
 
 	return &Vagrant{
 		VagrantfilePath: path,
+		ProviderName: "virtualbox",
 	}, nil
 }
 
